@@ -117,8 +117,7 @@ public class NearbyWords implements SpellingSuggest {
 
 		// initial variables
 		List<String> queue = new LinkedList<String>();     // String to explore
-		HashSet<String> visited = new HashSet<String>();   // to avoid exploring the same  
-														   // string multiple times
+		HashSet<String> visited = new HashSet<String>();   // to avoid exploring the same string multiple times
 		List<String> retList = new LinkedList<String>();   // words to return
 		int suggestions = 0;
 		int counter = 0;
@@ -128,17 +127,17 @@ public class NearbyWords implements SpellingSuggest {
 		visited.add(word);
 		
 		while(!queue.isEmpty() && suggestions < numSuggestions){
-			String curr = queue.remove(0);						//get the front word in queue
-			List<String> oneMutation = distanceOne(curr, true); //get list of 1 away word mutations
-			for(String n: oneMutation){							//for each string in the list
-				if(!visited.contains(n)){						//if string hasn't been visited
-					visited.add(n);								//add to visited & back of queue
+			String curr = queue.remove(0);				//get the front word in queue
+			List<String> oneMutation = distanceOne(curr, true); 	//get list of 1 away word mutations
+			for(String n: oneMutation){				//for each string in the list
+				if(!visited.contains(n)){			//if string hasn't been visited
+					visited.add(n);				//add to visited & back of queue
 					queue.add(n);
 					if(dict.isWord(n)){			//if string is in the dictionary 
 						retList.add(n);			//add to return list
 						suggestions++;
 						if(suggestions >= numSuggestions)
-							break;				//break out of the loop if # of suggestions needed is met
+							break;		//break out of the loop if # of suggestions needed is met
 					}
 					counter++;
 					if(counter == THRESHOLD)	//stop the search after 1000 strings and return the list
