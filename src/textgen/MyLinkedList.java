@@ -53,9 +53,9 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		if(index < 0 || index >= size)
 			throw new IndexOutOfBoundsException("Index must be a positive value and less than list size");
 		
-		LLNode<E> temp = head;					//start at index 0
+		LLNode<E> temp = head;				//start at index 0
 			for(int i=0; i < index; i++){
-				temp = temp.next;				//traverse the list to the correct index
+				temp = temp.next;		//traverse the list to the correct index
 			}
 		
 		return temp.data;		//returns the data at the requested index
@@ -74,22 +74,22 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		LLNode<E> newest = new LLNode<E>(element);
 		LLNode<E> temp = head;
 		for(int i =0; i < index; i++){
-			temp=temp.next;					//get to the index
+			temp=temp.next;			//get to the index
 		}
 		
 		if(size == 0 || index == size-1)	//if list is empty or adding to the end, call other add method
 			add(element);
 		else{
-			if(index == 0){						//adding to the front of the list
-				newest.next = head;				//new element points to the head
-				head.prev = newest;				//the head points back to the new element
-				head = newest;					//new element is now the head
+			if(index == 0){				//adding to the front of the list
+				newest.next = head;		//new element points to the head
+				head.prev = newest;		//the head points back to the new element
+				head = newest;			//new element is now the head
 			}		
 			else{
-				(temp.prev).next = newest;			//have element at index-1 point to new element
-				newest.next= temp;					//new element points at original index value
-				newest.prev = temp.prev;			//new element points back at index-1 location
-				temp.prev = newest;					//original index value points back at the new element 
+				(temp.prev).next = newest;	//have element at index-1 point to new element
+				newest.next= temp;		//new element points at original index value
+				newest.prev = temp.prev;	//new element points back at index-1 location
+				temp.prev = newest;		//original index value points back at the new element 
 			}
 			size++;
 		}
@@ -116,26 +116,26 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		
 		LLNode<E> temp = head;		
 		for(int i =0; i < index; i++){
-			temp=temp.next;					//get to the index
+			temp=temp.next;			//get to the index
 		}
 		if(index == 0 && size == 1){		//if removing the only element in the list
 			head = null;
 			tail = null;
 		}
-		else if(index == 0){				//if removing the head
-			head = temp.next;				//point head to the next element
-			head.prev = null;				//new head points back to nothing
-			temp.next = null;				//null out previous heads pointer for garbage collection(?)
+		else if(index == 0){			//if removing the head
+			head = temp.next;		//point head to the next element
+			head.prev = null;		//new head points back to nothing
+			temp.next = null;		//null out previous heads pointer for garbage collection(?)
 		}
 		else if (index == size - 1){		//if removing the tail
-			tail = temp.prev;				//point tail to previous element
-			(temp.prev).next = null;		//new tail points to nothing
-			temp.prev = null;				//null out previous tails pointer for garbage collection(?)			
+			tail = temp.prev;		//point tail to previous element
+			(temp.prev).next = null;	//new tail points to nothing
+			temp.prev = null;		//null out previous tails pointer for garbage collection(?)			
 		}
-		else{								//removing from somewhere in the middle 
+		else{					//removing from somewhere in the middle 
 			(temp.prev).next = temp.next;	//index-1 points to index+1
 			(temp.next).prev = temp.prev;	//index+1 points back to index-1
-			temp.next = null;				//null out pointers of element being removed for garbage collection(?)
+			temp.next = null;		//null out pointers of element being removed for garbage collection(?)
 			temp.prev = null;
 		}
 		
@@ -159,7 +159,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		
 		LLNode<E> temp = head;		
 		for(int i =0; i < index; i++){
-			temp=temp.next;					//get to the index
+			temp=temp.next;			//get to the index
 		}
 		
 		E value = temp.data;
