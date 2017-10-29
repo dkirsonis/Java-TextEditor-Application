@@ -23,7 +23,7 @@ public class WPTree implements WordPath {
 		 
 		 Dictionary d = new DictionaryHashSet();	//create and load up a new dictionary
 		 DictionaryLoader.loadDictionary(d, "data/dict.txt");
-		 this.nw = new NearbyWords(d);				//pass the dictionary to NearbyWords
+		 this.nw = new NearbyWords(d);			//pass the dictionary to NearbyWords
 	}
 	
 	/*
@@ -45,21 +45,21 @@ public class WPTree implements WordPath {
 			}
 		
 		List<WPTreeNode> queue = new LinkedList<WPTreeNode>();	//nodes+strings to explore
-		HashSet<String> visited = new HashSet<String>();		//strings we've tested
+		HashSet<String> visited = new HashSet<String>();	//strings we've tested
 		
-		root = new WPTreeNode(word1, null);						//root contains word1, no parent
+		root = new WPTreeNode(word1, null);			//root contains word1, no parent
 		visited.add(word1);
 		queue.add(root);
 		while(!queue.isEmpty()){
-			WPTreeNode curr = queue.remove(0);					//take the node at the front of the queue
+			WPTreeNode curr = queue.remove(0);				  //take the node at the front of the queue
 			List<String> oneMutation = nw.distanceOne(curr.getWord(), true);  //list of 1 away word mutations
-			for(String n: oneMutation){			//for each string neighbor
+			for(String n: oneMutation){					  //for each string neighbor
 				if(!visited.contains(n)){
-					visited.add(n);				//add to visited				
+					visited.add(n);					//add to visited				
 					WPTreeNode child = curr.addChild(n);		//add n as a child of curr
-					queue.add(child);							//add the node for n to the back of the queue
-					if(n.equals(word2)){						//if n is word2
-						return child.buildPathToRoot();			//return path from child to root
+					queue.add(child);				//add the node for n to the back of the queue
+					if(n.equals(word2)){				//if n is word2
+						return child.buildPathToRoot();		//return path from child to root
 					}
 				}
 			}
