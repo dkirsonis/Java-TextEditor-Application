@@ -1,19 +1,21 @@
 /----------------------[TEXT EDITOR APPLICATION]----------------------------------
-This Java application serves as a standard text editor, with the ability to toggle on and off 
-spelling suggestions and auto-complete. With spelling suggestions selected, misspelled words
-are highlighted red and underlined. When auto-complete is toggled on, typing words provides
-up to six real word auto-complete suggestions in real time with each new letter added.
-Additionally the application provides an options to load a text file, and to compute the 
-Flesch score of the current text, representing its calculated complexity.
+This Java application serves as a standard text editor, with the ability to toggle 
+on and off spelling suggestions and auto-complete. With spelling suggestions selected,
+misspelled words are highlighted red and underlined. When auto-complete is toggled on,
+typing words provides up to six real word auto-complete suggestions in real time with
+each new letter added. Additionally the application provides an options to load a text
+file, and to compute the Flesch score of the current text, representing its calculated
+complexity.
 
-Finally the editor has a fun bonus option called "Edit Distance", which accepts two lowercase words 
-and returns a list of word transformations required to go from Word1 to Word2. The only rules
-for transformations are that each word must be a real word, and that subsequent words only have a single 
-character difference from the previous word (one addition, one subtraction, or one letter change).
+Finally the editor has a fun bonus option called "Edit Distance", which accepts two 
+lowercase words and returns a list of word transformations required to go from Word1 
+to Word2. The only rules for transformations are that each word must be a real word,
+and that subsequent words only have a single character difference from the previous
+word (one addition, one subtraction, or one letter change).
 Ex: word1 = hello
-	word2 = world
-			**hello -> hell -> well -> wall -> wald -> ward -> word -> world**
-								Number of Steps: 7
+    word2 = world
+		**hello -> hell -> well -> wall -> wald -> ward -> word -> world**
+					Number of Steps: 7
 
 
 /----------------------[COURSE NOTES]---------------------------------------------
