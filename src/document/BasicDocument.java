@@ -31,9 +31,9 @@ public class BasicDocument extends Document
 	@Override
 	public int getNumWords()
 	{		
-		List<String> tokens = new ArrayList<String>();	//make a new list
-		tokens = getTokens("[a-zA-Z]+");				//the call to tokens returns a list of words
-	    return tokens.size();							//size = # of words in document
+		List<String> tokens = new ArrayList<String>();		//make a new list
+		tokens = getTokens("[a-zA-Z]+");			//the call to tokens returns a list of words
+	    return tokens.size();					//size = # of words in document
 	}
 	
 	/**
@@ -51,9 +51,9 @@ public class BasicDocument extends Document
 	@Override
 	public int getNumSentences()
 	{
-		List<String> tokens = new ArrayList<String>();	//make a new list
-		tokens = getTokens("[^!?.]+");					//the call to tokens returns a list of sentences
-        return tokens.size();							//size = # of sentences in the document
+		List<String> tokens = new ArrayList<String>();		//make a new list
+		tokens = getTokens("[^!?.]+");				//the call to tokens returns a list of sentences
+        return tokens.size();						//size = # of sentences in the document
 	}
 	
 	/**
@@ -73,11 +73,11 @@ public class BasicDocument extends Document
 	@Override
 	public int getNumSyllables()
 	{
-		List<String> tokens = new ArrayList<String>();	//make a new list
-		int total = 0;									//# of syllables in document
-		tokens = getTokens("[a-zA-Z]+");				//the call to tokens returns a list of words
-		for(String word: tokens){						//for each word in tokens
-			total += countSyllables(word);				//count the # of syllables in the word
+		List<String> tokens = new ArrayList<String>();		//make a new list
+		int total = 0;						//# of syllables in document
+		tokens = getTokens("[a-zA-Z]+");			//the call to tokens returns a list of words
+		for(String word: tokens){				//for each word in tokens
+			total += countSyllables(word);			//count the # of syllables in the word
 		}
         return total;
 	}
