@@ -35,7 +35,7 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
 		if (word == null) {
 			throw new NullPointerException();
 		}
-		if (isWord(word)) {							//return false if the word has already been added
+		if (isWord(word)) {				//return false if the word has already been added
 			return false;							
 		}
 		
@@ -43,17 +43,17 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
 		char[] charArray = newWord.toCharArray();	//string to char array to go 1 letter at a time
 		TrieNode currentNode = root;
 		
-		for(char c: charArray){							//for each letter
+		for(char c: charArray){					//for each letter
 			if(currentNode.getChild(c) != null){		//if that letter is in the hashmap
 				currentNode = currentNode.getChild(c);	//get its child node for that letter
 			}
-			else{										//letter not in hashmap
+			else{						//letter not in hashmap
 				currentNode = currentNode.insert(c);	//Insert the letter, return newly created node
 			}
 		}
-		currentNode.setEndsWord(true);	//After everything, currentNode points to node with our finished word
-										//Set that this node ends a word
-		size++;							//inc size because a new word has been added to the trie
+		currentNode.setEndsWord(true);			//After everything, currentNode points to node with our finished word
+								//Set that this node ends a word
+		size++;						//inc size because a new word has been added to the trie
 
 	    return true;
 	}
@@ -77,19 +77,19 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
 			throw new NullPointerException();
 		}
 		String newWord = s.toLowerCase();			//make word lowercase
-		char[] charArray = newWord.toCharArray();	//string to char array to go 1 letter at a time
+		char[] charArray = newWord.toCharArray();		//string to char array to go 1 letter at a time
 		TrieNode currentNode = root;
 		
-		for(char c: charArray){							//for each letter
+		for(char c: charArray){					//for each letter
 			if(currentNode.getChild(c) != null){		//if that letter is in the hashmap
 				currentNode = currentNode.getChild(c);	//get its child node for that letter
 			}
-			else{										//letter not in hashmap
-				return false;							//so the word can't be in the trie
+			else{						//letter not in hashmap
+				return false;				//so the word can't be in the trie
 			}
 		}
 		
-		if(currentNode.endsWord()){		//if the last node is set as a word
+		if(currentNode.endsWord()){			//if the last node is set as a word
 			return true;				//then it has already been added and is a word
 		}
 		
@@ -108,24 +108,24 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
      public List<String> predictCompletions(String prefix, int numCompletions) 
      {
     	 List<String> predictionsToReturn = new ArrayList<String>();	//list of predictions to return
-    	 List<TrieNode> predictions = new LinkedList<TrieNode>();		//acts as our queue of nodes
+    	 List<TrieNode> predictions = new LinkedList<TrieNode>();	//acts as our queue of nodes
     	 int completions = 0;
     	 
     	 if (prefix == null) {
  			throw new NullPointerException();
  		 }
  		String givenPrefix = prefix.toLowerCase();		//make word lowercase
- 		char[] charArray = givenPrefix.toCharArray();	//string to char array to go 1 letter at a time
+ 		char[] charArray = givenPrefix.toCharArray();		//string to char array to go 1 letter at a time
  		TrieNode currentNode = root;
  		
  		// Find the stem in the trie.  If the stem does not appear in the trie, return an
  		// empty list
- 		for(char c: charArray){							//for each letter
+ 		for(char c: charArray){					//for each letter
  			if(currentNode.getChild(c) != null){		//if that letter is in the hashmap
  				currentNode = currentNode.getChild(c);	//get its child node for that letter
  			}
- 			else{										//letter not in hashmap, prefix can't be in the trie
- 				return predictionsToReturn;				//return an empty list
+ 			else{						//letter not in hashmap, prefix can't be in the trie
+ 				return predictionsToReturn;		//return an empty list
  			}
  		}
     	 
@@ -134,8 +134,8 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
  		//while our queue of words isn't empty & we need more completions, perform BFS to generate
  		//more completions
  		while(!predictions.isEmpty() && completions != numCompletions){
- 			currentNode = predictions.remove(0);					//remove first node in queue
- 			if(currentNode.endsWord()){								//if it is a word
+ 			currentNode = predictions.remove(0);				//remove first node in queue
+ 			if(currentNode.endsWord()){					//if it is a word
  				predictionsToReturn.add(currentNode.getText());		//add it to completions list
  				completions++;
  			}
@@ -143,7 +143,7 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
  			for(char c: children){
  				if(currentNode.getChild(c) != null){			//if the node has a child for a given char
  					TrieNode newChild = currentNode.getChild(c);
- 					predictions.add(newChild);					//add the child to the queue
+ 					predictions.add(newChild);			//add the child to the queue
  				}
  			}
  			
