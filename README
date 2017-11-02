@@ -1,3 +1,5 @@
+***Application screenshots located in the Issues tab above***
+
 /----------------------[TEXT EDITOR APPLICATION]----------------------------------
 This Java application serves as a standard text editor, with the ability to toggle 
 on and off spelling suggestions and auto-complete. With spelling suggestions selected,
@@ -17,6 +19,13 @@ Ex: word1 = hello
 		**hello -> hell -> well -> wall -> wald -> ward -> word -> world**
 					Number of Steps: 7
 
+/----------------------[SCREENSHOT LINKS]-----------------------------------------
+https://user-images.githubusercontent.com/16725974/32351250-fc6b4b60-bfd9-11e7-9109-49914f789f8e.png
+https://user-images.githubusercontent.com/16725974/32351254-01f83d54-bfda-11e7-94f1-bcf86e06a3b5.png
+https://user-images.githubusercontent.com/16725974/32351260-060f42fc-bfda-11e7-922d-e9e558fe9495.png
+https://user-images.githubusercontent.com/16725974/32351261-062edb44-bfda-11e7-8b62-5f4df4488fde.png
+https://user-images.githubusercontent.com/16725974/32351262-064d919c-bfda-11e7-8e84-24379aa4d893.png
+https://user-images.githubusercontent.com/16725974/32351264-06693000-bfda-11e7-91fd-1a0d70fd9873.png
 
 /----------------------[COURSE NOTES]---------------------------------------------
 / Starter Code and GUI Application provided for Course 2 in the
